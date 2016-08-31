@@ -78,6 +78,9 @@ return array(
     /**
      * Configuration for: Cookies
      * 1209600 seconds = 2 weeks
+     *
+     * COOKIE_NAME: The name of the cookie sent to the client.
+     *
      * COOKIE_PATH is the path the cookie is valid on, usually "/" to make it valid on the whole domain.
      * @see http://stackoverflow.com/q/9618217/1114320
      * @see php.net/manual/en/function.setcookie.php
@@ -94,6 +97,7 @@ return array(
      * COOKIE_HTTP: If set to true, Cookies that can't be accessed by JS - Highly recommended!
      * SESSION_RUNTIME: How long should a session cookie be valid by seconds, 604800 = 1 week.
      */
+    'COOKIE_NAME' => 'remember_me',
     'COOKIE_RUNTIME' => 1209600,
     'COOKIE_PATH' => '/',
     'COOKIE_DOMAIN' => "",
