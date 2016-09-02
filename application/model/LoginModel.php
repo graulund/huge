@@ -13,10 +13,11 @@ class LoginModel
      * @param $user_name string The user's name
      * @param $user_password string The user's password
      * @param $set_remember_me_cookie mixed Marker for usage of remember-me cookie feature
+     * @param $generate_new_token bool Indicate whether to generate a new token (invalidating old cookies) or not
      *
      * @return bool success state
      */
-    public static function login($user_name, $user_password, $set_remember_me_cookie = null)
+    public static function login($user_name, $user_password, $set_remember_me_cookie = null, $generate_new_token = true)
     {
         // we do negative-first checks here, for simplicity empty username and empty password in one line
         if (empty($user_name) OR empty($user_password)) {
@@ -56,7 +57,7 @@ class LoginModel
 
         // if user has checked the "remember me" checkbox, then write token into database and into cookie
         if ($set_remember_me_cookie) {
-            self::setRememberMeInDatabaseAndCookie($result->user_id);
+            self::setRememberMeInDatabaseAndCookie($result->user_id, $generate_new_token);
         }
 
         // successfully logged in, so we write all necessary data into the session and set "user_logged_in" to true
@@ -318,23 +319,33 @@ class LoginModel
      * Maybe splitting this into database and cookie part ?
      *
      * @param $user_id
+     * @param $generate_new_token bool Indicate whether to generate a new token (invalidating old cookies) or not
      */
-    public static function setRememberMeInDatabaseAndCookie($user_id)
+    public static function setRememberMeInDatabaseAndCookie($user_id, $generate_new_token = true)
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        // generate 64 char random string
-        $random_token_string = hash('sha256', mt_rand());
+        $my_token_string = null;
 
-        // write that token into database
-        $sql = "UPDATE users SET user_remember_me_token = :user_remember_me_token WHERE user_id = :user_id LIMIT 1";
-        $sth = $database->prepare($sql);
-        $sth->execute(array(':user_remember_me_token' => $random_token_string, ':user_id' => $user_id));
+        if(!$generate_new_token) {
+            // reuse old token if available
+            $my_token_string = UserModel::getUserCurrentTokenByUserId($user_id);
+        }
+
+        if ($generate_new_token || !$my_token_string) {
+            // generate 64 char random string
+            $my_token_string = hash('sha256', mt_rand());
+
+            // write that token into database
+            $sql = "UPDATE users SET user_remember_me_token = :user_remember_me_token WHERE user_id = :user_id LIMIT 1";
+            $sth = $database->prepare($sql);
+            $sth->execute(array(':user_remember_me_token' => $my_token_string, ':user_id' => $user_id));
+        }
 
         // generate cookie string that consists of user id, random string and combined hash of both
         // never expose the original user id, instead, encrypt it.
-        $cookie_string_first_part = Encryption::encrypt($user_id) . ':' . $random_token_string;
-        $cookie_string_hash       = hash('sha256', $user_id . ':' . $random_token_string);
+        $cookie_string_first_part = Encryption::encrypt($user_id) . ':' . $my_token_string;
+        $cookie_string_hash       = hash('sha256', $user_id . ':' . $my_token_string);
         $cookie_string            = $cookie_string_first_part . ':' . $cookie_string_hash;
 
         // set cookie, and make it available only for the domain created on (to avoid XSS attacks, where the

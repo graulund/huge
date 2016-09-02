@@ -340,4 +340,34 @@ class UserModel
         // return one row (we only have one result or nothing)
         return $query->fetch();
     }
+
+    /**
+     * Gets the user's data by user's id and a token (used by login-via-cookie process)
+     *
+     * @param $user_id
+     * @param $token
+     *
+     * @return mixed Returns false if user does not exist, returns object with user's data when user exists
+     */
+    public static function getUserCurrentTokenByUserId($user_id)
+    {
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        // get real token from database (and all other data)
+        $query = $database->prepare("SELECT user_remember_me_token
+                                     FROM users
+                                     WHERE user_id = :user_id
+                                       AND user_remember_me_token IS NOT NULL
+                                       AND user_provider_type = :provider_type LIMIT 1");
+        $query->execute(array(':user_id' => $user_id, ':provider_type' => 'DEFAULT'));
+
+        // return one row (we only have one result or nothing)
+        $row = $query->fetch();
+
+        if($row){
+            return $row->user_remember_me_token;
+        } else {
+            return null;
+        }
+    }
 }
