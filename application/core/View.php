@@ -1,5 +1,7 @@
 <?php
 
+namespace Huge\Core;
+
 /**
  * Class View
  * The part that handles all the output

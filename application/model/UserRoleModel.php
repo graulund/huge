@@ -1,5 +1,10 @@
 <?php
 
+namespace Huge\Model;
+use Huge\Core\DatabaseFactory;
+use Huge\Core\Session;
+use Huge\Core\Text;
+
 /**
  * Class UserRoleModel
  *

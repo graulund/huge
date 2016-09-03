@@ -1,5 +1,8 @@
 <?php
 
+namespace Huge\Core;
+use Huge\Controller\ErrorController;
+
 /**
  * Class Application
  * The heart of the application

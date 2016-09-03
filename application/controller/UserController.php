@@ -1,5 +1,7 @@
 <?php
 
+namespace Huge\Controller;
+
 /**
  * UserController
  * Controls everything that is user-related

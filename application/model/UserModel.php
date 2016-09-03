@@ -1,5 +1,12 @@
 <?php
 
+namespace Huge\Model;
+use Huge\Core\Config;
+use Huge\Core\DatabaseFactory;
+use Huge\Core\Session;
+use Huge\Core\Text;
+use stdClass;
+
 /**
  * UserModel
  * Handles all the PUBLIC profile stuff. This is not for getting data of the logged in user, it's more for handling

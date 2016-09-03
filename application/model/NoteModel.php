@@ -1,5 +1,10 @@
 <?php
 
+namespace Huge\Model;
+use Huge\Core\DatabaseFactory;
+use Huge\Core\Session;
+use Huge\Core\Text;
+
 /**
  * NoteModel
  * This is basically a simple CRUD (Create/Read/Update/Delete) demonstration.

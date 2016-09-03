@@ -1,5 +1,8 @@
 <?php
 
+namespace Huge\Core;
+use Huge\Model\LoginModel;
+
 /**
  * Class Auth
  * Checks if user is logged in, if not then sends the user to "yourdomain.com/login".

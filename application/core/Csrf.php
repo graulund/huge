@@ -1,5 +1,7 @@
 <?php
 
+namespace Huge\Core;
+
 /**
  * Cross Site Request Forgery Class
  *

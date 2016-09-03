@@ -1,5 +1,12 @@
 <?php
 
+namespace Huge\Controller;
+use Huge\Core\Auth;
+use Huge\Core\Controller;
+use Huge\Core\Redirect;
+use Huge\Core\Request;
+use Huge\Model\NoteModel;
+
 /**
  * The note controller: Just an example of simple create, read, update and delete (CRUD) actions.
  */

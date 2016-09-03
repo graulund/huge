@@ -1,5 +1,8 @@
 <?php
 
+namespace Huge\Core;
+use Exception;
+
 /**
  * Encryption and Decryption Class
  *

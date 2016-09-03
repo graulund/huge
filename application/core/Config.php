@@ -1,5 +1,7 @@
 <?php
 
+namespace Huge\Core;
+
 class Config
 {
     // this is public to allow better Unit Testing

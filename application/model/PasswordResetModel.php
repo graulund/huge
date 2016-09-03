@@ -1,5 +1,12 @@
 <?php
 
+namespace Huge\Model;
+use Huge\Core\Config;
+use Huge\Core\DatabaseFactory;
+use Huge\Core\Mail;
+use Huge\Core\Session;
+use Huge\Core\Text;
+
 /**
  * Class PasswordResetModel
  *

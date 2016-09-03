@@ -1,5 +1,12 @@
 <?php
 
+namespace Huge\Controller;
+use Huge\Core\Controller;
+use Huge\Core\Redirect;
+use Huge\Model\CaptchaModel;
+use Huge\Model\LoginModel;
+use Huge\Model\RegistrationModel;
+
 /**
  * RegisterController
  * Register new user

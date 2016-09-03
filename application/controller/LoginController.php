@@ -1,5 +1,13 @@
 <?php
 
+namespace Huge\Controller;
+use Huge\Core\Controller;
+use Huge\Core\Csrf;
+use Huge\Core\Redirect;
+use Huge\Core\Request;
+use Huge\Model\LoginModel;
+use Huge\Model\PasswordResetModel;
+
 /**
  * LoginController
  * Controls everything that is authentication-related
