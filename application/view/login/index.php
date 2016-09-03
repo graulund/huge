@@ -16,6 +16,10 @@
                         <input type="checkbox" name="set_remember_me_cookie" class="remember-me-checkbox" />
                         Remember me for 2 weeks
                     </label>
+                    <label for="generate_new_token" class="generate-new-token-label">
+                        <input type="checkbox" name="generate_new_token" class="generate-new-token" checked="checked" />
+                        Log out all existing sessions
+                    </label>
                     <!-- when a user navigates to a page that's only accessible for logged a logged-in user, then
                          the user is sent to this page here, also having the page he/she came from in the URL parameter
                          (have a look). This "where did you came from" value is put into this form to sent the user back
