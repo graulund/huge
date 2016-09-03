@@ -1,3 +1,10 @@
+<?php
+
+namespace Huge\View;
+use Huge\Core\Config;
+use Huge\Core\Session;
+
+?>
 <div class="container">
     <h1>UserController/changeUserRole</h1>
 

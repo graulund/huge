@@ -1,5 +1,7 @@
 <?php
 
+namespace Huge\Core;
+
 class Text
 {
     private static $texts;

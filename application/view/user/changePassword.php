@@ -1,3 +1,9 @@
+<?php
+
+namespace Huge\View;
+use Huge\Core\Config;
+
+?>
 <div class="container">
     <h1>UserController/changePassword</h1>
 

@@ -1,5 +1,9 @@
 <?php
 
+namespace Huge\Core;
+use PDO;
+use PDOException;
+
 /**
  * Class DatabaseFactory
  *

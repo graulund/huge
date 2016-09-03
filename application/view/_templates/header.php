@@ -1,3 +1,11 @@
+<?php
+
+namespace Huge\View;
+use Huge\Core\Config;
+use Huge\Core\Session;
+use Huge\Core\View;
+
+?>
 <!doctype html>
 <html>
 <head>

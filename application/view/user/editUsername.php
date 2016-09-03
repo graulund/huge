@@ -1,3 +1,10 @@
+<?php
+
+namespace Huge\View;
+use Huge\Core\Config;
+use Huge\Core\Csrf;
+
+?>
 <div class="container">
     <h1>UserController/editUsername</h1>
 

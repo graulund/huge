@@ -1,5 +1,10 @@
 <?php
 
+namespace Huge\Model;
+use Huge\Core\DatabaseFactory;
+use Huge\Core\Session;
+use Huge\Core\Text;
+
 /**
  * Handles all data manipulation of the admin part
  */

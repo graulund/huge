@@ -1,3 +1,9 @@
+<?php
+
+namespace Huge\View;
+use Huge\Core\Config;
+
+?>
 <div class="container">
 
     <!-- echo out the system feedback (error and success messages) -->

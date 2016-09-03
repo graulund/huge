@@ -1,5 +1,8 @@
 <?php
 
+namespace Huge;
+use Huge\Core\Application;
+
 /**
  * A super-simple user-authentication solution, embedded into a small framework.
  *

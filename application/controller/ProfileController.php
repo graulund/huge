@@ -1,5 +1,10 @@
 <?php
 
+namespace Huge\Controller;
+use Huge\Core\Controller;
+use Huge\Core\Redirect;
+use Huge\Model\UserModel;
+
 class ProfileController extends Controller
 {
     /**

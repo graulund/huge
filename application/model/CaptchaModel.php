@@ -1,5 +1,8 @@
 <?php
 
+namespace Huge\Model;
+use Huge\Core\Session;
+
 /**
  * Class CaptchaModel
  *

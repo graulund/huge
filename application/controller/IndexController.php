@@ -1,5 +1,8 @@
 <?php
 
+namespace Huge\Controller;
+use Huge\Core\Controller;
+
 class IndexController extends Controller
 {
     /**

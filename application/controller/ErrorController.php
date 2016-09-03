@@ -1,5 +1,8 @@
 <?php
 
+namespace Huge\Controller;
+use Huge\Core\Controller;
+
 /**
  * Class Error
  * This controller simply contains some methods that can be used to give proper feedback in certain error scenarios,

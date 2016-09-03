@@ -1,5 +1,7 @@
 <?php
 
+namespace Huge\Core;
+
 /**
  * Class Redirect
  *
